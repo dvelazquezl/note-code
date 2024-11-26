@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ChevronDown from "./icons/chevron-down";
+import CustomSelector from "./custom-select";
 
 const useTheme = () => {
   const [activeTheme, setTheme] = useState<string>(
@@ -23,21 +23,15 @@ const useTheme = () => {
 
   const ThemeSelector: React.FC = () => {
     return (
-      <div className="relative">
-        <select
-          name="theme"
-          id="theme-selector"
-          value={activeTheme}
-          onChange={handleThemeChange}
-          className="rounded-full pl-4 pr-5 py-0.5 bg-gray-0 appearance-none focus-visible:outline-none focus:ring-2 focus:ring-gray-500 hover:bg-gray-400 hover:dark:bg-gray-100 transition-colors"
-        >
-          <option value="dark">Dark</option>
-          <option value="light">Light</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1">
-          <ChevronDown />
-        </div>
-      </div>
+      <CustomSelector
+        name="theme"
+        id="theme-selector"
+        value={activeTheme}
+        onChange={handleThemeChange}
+      >
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </CustomSelector>
     );
   };
 
