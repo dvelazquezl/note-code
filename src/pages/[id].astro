@@ -1,8 +1,10 @@
 ---
 import MonacoEditor from "../components/monaco-editor";
 import PageWrapper from "../components/page-wrapper.astro";
+
+const { id } = Astro.params;
 ---
 
 <PageWrapper>
-  <MonacoEditor client:only="react" />
+  <MonacoEditor client:only="react" id={id} />
 </PageWrapper>
